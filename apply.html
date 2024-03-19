@@ -33,14 +33,16 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/apply.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <!-- 자바스크립트 -->
+    <!-- 제이쿼리 -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- html5 자바스크립트 -->
     <script src="js/html5shiv.js"></script>
     <!-- <script src="js/prefixfree.min.js"></script> -->
     <script src="js/respond.min.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- 해당 자바스크립트 -->
     <script src="js/apply.js"></script>
     <title>파티마겔 - 신청 페이지</title>
   </head>
@@ -49,11 +51,12 @@
       <!-- min -->
       <!-- ran -->
       <!-- hun -->
-      <form class="app-inner">
+      <div class="app-inner">
         <div class="app-left">
           <ul class="app-left-top">
             <li>
-              <h1><span>여드름,</span><br />뭘 발라야 할까?</h1>
+              
+              <div class="speech"><img src="/images/speech.png" alt="말풍선"><h1><span>여드름,</span><br />뭘 발라야 할까?</h1></div>
             </li>
             <li>
               <div class="model-img"><img src="/images/model.png" alt="모델" /></div>
@@ -61,10 +64,11 @@
           </ul>
           <ul class="app-left-bottom">
             <div class="gel-img"><img src="images/modal-img.png" alt="겔"></div>
-            <h1>무항생제 여드름 치료제 <br /><span>파티마겔</span></h1>
+            <h1><span>無항생제</span> 여드름 치료제</h1>
+            <div class="logo-img"><img src="/images/logo-bg-wt.png" alt="로고"></div>
           </ul>
         </div>
-        <div class="app-box">
+        <form class="app-box">
           <ul class="app-info">
             <p>배송 안내</p>
             <li>샘플 제품 신청 시 지정하신 약국으로 발송됩니다.</li>
@@ -102,10 +106,10 @@
               <li><h3>인증 번호</h3></li>
               <li><input type="tel" class="tel2" /></li>
             </ul>
-            <button type="submit" class="tell-bt" onclick="">신청하기</button>
+            <button type="submit" class="tell-bt" onclick="showConfirmation()">신청하기</button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </body>
 </html>
