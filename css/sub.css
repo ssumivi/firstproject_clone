@@ -64,12 +64,14 @@ body {
 }
 
 .qna-click-list-li {
+  position: relative;
   width: 65%;
   height: calc(100% / 5);
 }
 .fn-qcl:hover{
-  transform: scale(1.1);
+  transform: translateY(-10%);
 }
+
 .qna-click-list-li:nth-of-type(2) {
   position: absolute;
   top: 17%;
@@ -87,6 +89,23 @@ body {
 .qna-click-list-li img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+.qcl-emoji{
+  position: absolute;
+  bottom: 15px;
+  left: 20%;
+  display: block;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 25px;
+}
+.qna-click-list-li .qcl-emoji img{
+  width: 20px;
+  height: 20px;
   object-fit: cover;
 }
 .qna-content {

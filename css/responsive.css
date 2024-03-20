@@ -94,19 +94,27 @@
     }
     .short-title span:nth-child(3) {
         word-break: keep-all;
+        font-size: 3.73333vw;
     }
     .video span {
         letter-spacing: -0.26667vw;
     font-size: 8.26667vw;
     line-height: 1.3;
     }
+    .video-title p {
+      font-size: 3.73333vw;
+    }
 }
 /* hun */
 @media screen and (max-width: 1200px){
+  .app-inner{
+    position: relative;
+    width: 520px;
+    margin: 0 auto;
+  }
   .app-left{
     display: none;
   }
-
 }
 @media screen and (max-width: 950px){
 .info-info{
@@ -153,7 +161,6 @@
     font-size: 16px;
   }
 }
-
 @media screen and (max-width: 500px) {
   .info-info{
     width: 80vw;
