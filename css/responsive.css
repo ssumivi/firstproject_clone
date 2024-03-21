@@ -71,11 +71,11 @@
 }
 @media all and (max-width: 1625px) {
   .header .inner {
-    max-width: 1500px;
-    gap: 22%;
+    max-width: 1580px;
+    gap: 15%;
   }
   .lang {
-    right: 25px;
+    right: 95px;
   }
   .main-img-area .inner {
     position: relative;
@@ -92,10 +92,13 @@
   .lang {
     right: 55px;
   }
+  .main-img-area{
+    min-height: 890px;
+  }
   .main-img-area .inner {
     position: relative;
     width: 100%;
-    height: 75%;
+    height: 74%;
     max-width: 1470px;
   }
   .ani-product > a > img {
@@ -116,10 +119,13 @@
   .lang {
     display: none;
   }
+  .main-img-area{
+    min-height: 775px;
+  }
   .main-img-area .inner {
     position: relative;
     width: 100%;
-    height: 70%;
+    height: 86%;
     max-width: 1374px;
   }
   .ani-product > a > img {
@@ -235,37 +241,48 @@
 @media all and (max-width: 480px) {
   .header .inner {
     max-width: 300px;
-    gap: 20%;
+    gap: 8%;
   }
   .lang {
     display: none;
   }
   .logo {
-    width: 100%;
+    width: 20%;
     padding: 0 10px;
-    height: 50px;
-    line-height: 50px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .logo img{
+    width: 100%;
+  }
+  .menu-right{
+    gap: 0;
+    width: 60%;
   }
   .top-menu {
-    height: 50px;
+    height: 30px;
+    width: 100%;
+    font-size: 1.6rem;
+    justify-content: center;
   }
   .top-menu > li::after {
-    height: 40px;
-    padding: 0 30px;
+    height: 22px;
+    padding: 0 10px;
   }
   .top-menu > li:last-of-type {
     display: none;
   }
   .main-img-area {
     height: 75vh;
-    min-height: unset;
+    min-height: 620px;
+    
     margin: 15px 0 30px 0;
   }
   .main-img-area .inner {
     position: relative;
     width: 100%;
-    height: 98%;
-    max-width: 300px;
+    height: 86.5%;
+    max-width: 310px;
   }
   .main-img-slide {
     position: relative;

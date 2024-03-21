@@ -182,7 +182,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background: url("../images/main-img_psd.png")no-repeat center/ cover;
+  background: url("../images/main-img_psd.png")no-repeat center/ 100%;
 }
 
 .ani-product {
@@ -526,32 +526,7 @@ color: #fff;
   display: block;
   margin-top: 5%;
 }
-.quiz-box {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  border-radius: 15px;
-  padding: 50px;
-}
-.quiz-title {
-  position: relative;
-  width: 100%;
-  line-height: 65px;
-  padding: 0 15px;
-  margin: 0 auto;
-  border: 1px solid #ececec;
-  border-radius: 35px;
-  font-family: "VITRO CORE TTF", 'TTHakgyoansimJiugaeR';
-  font-weight: 100;
-  font-size: 2.2rem;
-  text-align: center;
-  background: #fff;
-}
+
 .answer-box {
   position: relative;
   display: flex;
@@ -630,13 +605,7 @@ color: #fff;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.quiz-box-wrap .qbg2 {
-  position: absolute;
-  top: 0;
-  /* opacity: .3; */
-  display: none;
-  z-index: 12;
-}
+
 .qbg2 .quiz-box {
   overflow: hidden;
 }
