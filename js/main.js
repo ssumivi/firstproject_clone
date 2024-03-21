@@ -118,6 +118,16 @@ window.onload = function () {
       behavior: "smooth",
     });
   });
+  var fnAniImgChg = document.querySelector(".ani-img");
+  var fnAniArea = document.querySelector(".ani-product");
+  
+  fnAniArea.addEventListener("mouseenter", function(){
+    fnAniImgChg.src = "images/ani-product-h-01.png";
+  });
+  
+  fnAniArea.addEventListener("mouseleave", function(){
+    fnAniImgChg.src = "images/ani-product.png";
+  });
   //quiz area
   const fnAnswerBox = document.querySelectorAll(".answer-box .answer-box-li");
   const fnChoiceBox = document.querySelectorAll(".choice-box .choice-box-li");
@@ -131,7 +141,11 @@ window.onload = function () {
       fnAnswerBox[currentIdx].textContent = box.textContent;
       fnAnswerBox[currentIdx].classList.add("jsAnswer");
       currentIdx++;
-      fnChkAnswerSub.classList.add("active-as");
+      // 모든 fnAnswerBox가 채워졌는지 확인하고 정답 확인 및 버튼 활성화/비활성화
+      const isAllFilled = Array.from(fnAnswerBox).every((li) => li.textContent.trim().length > 0);
+      if (isAllFilled) {
+        fnChkAnswerSub.classList.add("active-as");
+      }
     }
   }
 
