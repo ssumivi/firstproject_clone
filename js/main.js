@@ -108,7 +108,12 @@ window.onload = function () {
   langM.addEventListener("click", () => {
     langM.classList.remove("show");
   });
-
+  //480 point logo img chg
+  const fnLogoChg = document.querySelector(".logo > a > img");
+  const innerWidth = window.innerWidth;
+  if (innerWidth <= 480) {
+    fnLogoChg.src = "images/favicon/apple-icon-76x76.png";
+  }
   //ani product link
   var fnScNavLinkElement = document.querySelector(".ani-product a");
   fnScNavLinkElement.addEventListener("click", function (e) {
@@ -134,8 +139,11 @@ window.onload = function () {
   });
   //quiz area
   AOS.init();
-  //quiz Aos
-  
+  const fnAnswerBox = document.querySelectorAll(".answer-box .answer-box-li");
+  const fnChoiceBox = document.querySelectorAll(".choice-box .choice-box-li");
+  const fnChkAnswerSub = document.querySelector(".answer-sub");
+  let currentIdx = 0;
+  let animationPlayed = false;
 
   // Click event handler for choice boxes
   function clickHandler(box) {
