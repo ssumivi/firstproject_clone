@@ -5,25 +5,25 @@ window.onload = function () {
     document.getElementById("popup").style.display = "none";
   }
 
-  // "다시 보지 않기" 버튼 이벤트 리스너
-  document.getElementById("neverShowAgain").addEventListener("click", function () {
-    // localStorage에 사용자의 선택 저장
-    localStorage.setItem("hideModal", "true");
-    hideModal();
-  });
+  // // "다시 보지 않기" 버튼 이벤트 리스너
+  // document.getElementById("neverShowAgain").addEventListener("click", function () {
+  //   // localStorage에 사용자의 선택 저장
+  //   localStorage.setItem("hideModal", "true");
+  //   hideModal();
+  // });
 
-  // 페이지 로드 시 모달 상태 확인
-  window.onload = function () {
-    // 사용자가 "다시 보지 않기"를 선택했는지 확인
-    if (localStorage.getItem("hideModal") === "true") {
-      hideModal();
-    }
-  };
+  // // 페이지 로드 시 모달 상태 확인
+  // window.onload = function () {
+  //   // 사용자가 "다시 보지 않기"를 선택했는지 확인
+  //   if (localStorage.getItem("hideModal") === "true") {
+  //     hideModal();
+  //   }
+  // };
 
-  // "닫기" 버튼 이벤트 리스너 (선택적 구현)
-  document.getElementById("close").addEventListener("click", function () {
-    hideModal();
-  });
+  // // "닫기" 버튼 이벤트 리스너 (선택적 구현)
+  // document.getElementById("close").addEventListener("click", function () {
+  //   hideModal();
+  // });
 
   //min
   //menu area
@@ -87,13 +87,16 @@ window.onload = function () {
     // 새로 고침 / url 입력해서 html 출력시
     // 1.스크롤바의 픽셀 위치값을 파악해서
     scy = this.document.documentElement.scrollTop;
+    const innerWidth = window.innerWidth;
     // 2.class 적용 여부 결정
-    if (scy > 0) {
-      topLogo.classList.add("logoh");
-      langBox.classList.add("logoh");
-    } else {
-      topLogo.classList.remove("logoh");
-      langBox.classList.remove("logoh");
+    if (innerWidth > 480) {
+      if (scy > 0) {
+        topLogo.classList.add("logoh");
+        langBox.classList.add("logoh");
+      } else {
+        topLogo.classList.remove("logoh");
+        langBox.classList.remove("logoh");
+      }
     }
   });
   //language
@@ -105,12 +108,7 @@ window.onload = function () {
   langM.addEventListener("click", () => {
     langM.classList.remove("show");
   });
-  //480 point logo img chg
-  const fnLogoChg = document.querySelector(".logo > a > img");
-  const innerWidth = window.innerWidth;
-  if (innerWidth <= 480) {
-    fnLogoChg.src = "images/favicon/apple-icon-76x76.png";
-  }
+
   //ani product link
   var fnScNavLinkElement = document.querySelector(".ani-product a");
   fnScNavLinkElement.addEventListener("click", function (e) {
@@ -135,11 +133,9 @@ window.onload = function () {
     fnAniImgChg.src = "images/ani-product.png";
   });
   //quiz area
-  const fnAnswerBox = document.querySelectorAll(".answer-box .answer-box-li");
-  const fnChoiceBox = document.querySelectorAll(".choice-box .choice-box-li");
-  const fnChkAnswerSub = document.querySelector(".answer-sub");
-  let currentIdx = 0;
-  let animationPlayed = false;
+  AOS.init();
+  //quiz Aos
+  
 
   // Click event handler for choice boxes
   function clickHandler(box) {
@@ -449,179 +445,6 @@ window.onload = function () {
       });
     }
   });
-
-  // ran
-  // Swiper 설정
-  var swiper = new Swiper(".swiper-short", {
-    loop: true,
-    autoplay: {
-      delay: 1000, //1초의 딜레이를 주고 자동 재생된다
-    },
-    // slidesPerView: 5,
-    spaceBetween: 10, //여백
-
-    pagination: {
-      el: ".swiper-short .short-pn .swiper-pagination",
-      type: "progressbar",
-    },
-    navigation: {
-      nextEl: ".swiper-short .short-pn .swiper-button-next",
-      prevEl: ".swiper-short .short-pn .swiper-button-prev",
-    },
-    breakpoints: {
-      900: {
-        //브라우저 화면너비 900이상일때
-        slidesPerView: 5.8,
-        spaceBetween: 50,
-      },
-      786: {
-        slidesPerView: 4.7,
-        spaceBetween: 30,
-      },
-      600: {
-        slidesPerView: 4,
-        spaceBetween: 20,
-      },
-      320: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      200: {
-        slidesPerView: 2.3,
-        spaceBetween: 20,
-      },
-    },
-  });
-  // 쇼츠 기능
-  // 첫번째 모달 창 열기
-  document.getElementById("youtube-link").addEventListener("click", function () {
-    document.getElementById("youtube-modal").style.display = "block";
-  });
-
-  // 첫 번째 모달 창 닫기
-  document.querySelectorAll("#youtube-modal .s-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("youtube-modal").style.display = "none";
-    });
-  });
-
-  // 두번째 모달 창 열기
-  document.getElementById("youtube-link-2").addEventListener("click", function () {
-    document.getElementById("youtube-modal-2").style.display = "block";
-  });
-
-  // 두 번째 모달 창 닫기
-  document.querySelectorAll("#youtube-modal-2 .s-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("youtube-modal-2").style.display = "none";
-    });
-  });
-
-  // 세번째 모달 창 열기
-  document.getElementById("youtube-link-3").addEventListener("click", function () {
-    document.getElementById("youtube-modal-3").style.display = "block";
-  });
-  // 세번째 모달 창 닫기
-  document.querySelectorAll("#youtube-modal-3 .s-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("youtube-modal-3").style.display = "none";
-    });
-  });
-
-  // 네번째 모달 창 열기
-  document.getElementById("youtube-link-4").addEventListener("click", function () {
-    document.getElementById("youtube-modal-4").style.display = "block";
-  });
-  // 네번째 모달 창 닫기
-  document.querySelectorAll("#youtube-modal-4 .s-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("youtube-modal-4").style.display = "none";
-    });
-  });
-
-  // 다섯번째 모달 창 열기
-  document.getElementById("youtube-link-5").addEventListener("click", function () {
-    document.getElementById("youtube-modal-5").style.display = "block";
-  });
-  // 다섯번째 모달 창 닫기
-  document.querySelectorAll("#youtube-modal-5 .s-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("youtube-modal-5").style.display = "none";
-    });
-  });
-
-  // 여섯번째 모달 창 열기
-  document.getElementById("youtube-link-6").addEventListener("click", function () {
-    document.getElementById("youtube-modal-6").style.display = "block";
-  });
-  // 여섯번째 모달 창 닫기
-  document.querySelectorAll("#youtube-modal-6 .s-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("youtube-modal-6").style.display = "none";
-    });
-  });
-
-  /* 따라다니는 퀵메뉴 */
-  var currentPosition = parseInt($(".quickmenu").css("top"));
-  $(window).scroll(function () {
-    var position = $(window).scrollTop();
-    $(".quickmenu")
-      .stop()
-      .animate({ top: position + currentPosition + "px" }, 600);
-  });
-
-  // 신청조회 모달 창 열기
-  document.getElementById("search-link").addEventListener("click", function () {
-    document.getElementById("search-modal").style.display = "block";
-  });
-  // 신청조회 모달 창 닫기
-  document.querySelectorAll("#search-modal .q-m-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("search-modal").style.display = "none";
-    });
-  });
-
-  // FAQ 모달 창 열기
-  document.getElementById("FAQ-link").addEventListener("click", function () {
-    document.getElementById("FAQ-link").style.display = "block";
-  });
-
-  // FAQ 모달 창 닫기
-  document.querySelectorAll("#FAQ-link .s-close").forEach(function (element) {
-    element.addEventListener("click", function () {
-      document.getElementById("FAQ-link").style.display = "none";
-    });
-  });
-
-  // 탑 버튼
-  window.addEventListener("load", function () {
-    // ===== top으로 가는 버튼
-    const topBtn = document.getElementById("quick_3");
-    topBtn.addEventListener("click", function (event) {
-      event.preventDefault();
-      // 조건문 수정
-      if (window.scrollY === 0) {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      } else {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-
-  // 수직 스크롤 값 가져오기
-  var scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-  // 수평 스크롤 값 가져오기
-  var scrollLeft = window.scrollX || document.documentElement.scrollLeft;
-
-  console.log("수직 스크롤 값: " + scrollTop);
-  console.log("수평 스크롤 값: " + scrollLeft);
 
   // hun
 };
