@@ -272,7 +272,7 @@ body {
   width: 100%;
   height: 100%;
   background: #fff;
-  border-radius: 15px;
+  border-radius: 35px;
   padding: 50px;
 }
 .quiz-title {
@@ -374,7 +374,7 @@ color: #fff;
 .answer-sub.active-as {
   background-color: #a3c100;
 }
-/* quiz answer collec ver*/
+/* quiz answer correc ver*/
 
 .party-popper {
   position: absolute;

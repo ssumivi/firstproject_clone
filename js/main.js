@@ -106,10 +106,10 @@ window.onload = function () {
     langM.classList.remove("show");
   });
   //480 point logo img chg
-  const fnLogoChg = document.querySelector(".logo > a > img")
-  const innerWidth = window.innerWidth
-  if(innerWidth <= 480){
-    fnLogoChg.src = 'images/favicon/apple-icon-76x76.png'
+  const fnLogoChg = document.querySelector(".logo > a > img");
+  const innerWidth = window.innerWidth;
+  if (innerWidth <= 480) {
+    fnLogoChg.src = "images/favicon/apple-icon-76x76.png";
   }
   //ani product link
   var fnScNavLinkElement = document.querySelector(".ani-product a");
@@ -126,12 +126,12 @@ window.onload = function () {
   });
   var fnAniImgChg = document.querySelector(".ani-img");
   var fnAniArea = document.querySelector(".ani-product");
-  
-  fnAniArea.addEventListener("mouseenter", function(){
+
+  fnAniArea.addEventListener("mouseenter", function () {
     fnAniImgChg.src = "images/ani-product-h-01.png";
   });
-  
-  fnAniArea.addEventListener("mouseleave", function(){
+
+  fnAniArea.addEventListener("mouseleave", function () {
     fnAniImgChg.src = "images/ani-product.png";
   });
   //quiz area
