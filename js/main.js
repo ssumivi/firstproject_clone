@@ -115,11 +115,21 @@ window.onload = function () {
     var targetSectionId = this.getAttribute("href");
     var targetSection = document.querySelector(targetSectionId);
     var targetPosition = targetSection.offsetTop;
+    var targetImage = document.querySelector(".insta-text-box");
+    var fnAniMove = document.querySelector(".ani-product > a > img");
+    const innerWidth = window.innerWidth;
 
     window.scrollTo({
       top: targetPosition,
       behavior: "smooth",
     });
+    if (innerWidth > 480) {
+      var aniProductElement = document.querySelector(".ani-product");
+      aniProductElement.style.animation = "none";
+      fnAniMove.style.position = "absolute";
+      fnAniMove.style.bottom = -(targetImage.offsetTop + fnAniMove.offsetHeight) + "px";
+      fnAniMove.style.right = "0";
+  }
   });
   var fnAniImgChg = document.querySelector(".ani-img");
   var fnAniArea = document.querySelector(".ani-product");
