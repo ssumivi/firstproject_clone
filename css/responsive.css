@@ -19,8 +19,8 @@
   }
   .ani-product > a > img {
     position: absolute;
-    bottom: 240px;
-    right: 0;
+    bottom: 90px;
+    right: -25px;
   }
   .main-quiz {
     margin-bottom: 6%;
