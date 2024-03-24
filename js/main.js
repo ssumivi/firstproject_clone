@@ -115,11 +115,20 @@ window.onload = function () {
     var targetSectionId = this.getAttribute("href");
     var targetSection = document.querySelector(targetSectionId);
     var targetPosition = targetSection.offsetTop;
-
+    var targetImage = document.querySelector(".insta-text-box");
+    var fnAniMove = document.querySelector(".ani-product > a > img");
+    const innerWidth = window.innerWidth;
     window.scrollTo({
       top: targetPosition,
       behavior: "smooth",
     });
+    if (innerWidth > 480) {
+      var aniProductElement = document.querySelector(".ani-product");
+      aniProductElement.style.animation = "none";
+      fnAniMove.style.position = "absolute";
+      fnAniMove.style.bottom = -(targetImage.offsetTop + fnAniMove.offsetHeight) + "px";
+      fnAniMove.style.right = "0";
+    }
   });
   var fnAniImgChg = document.querySelector(".ani-img");
   var fnAniArea = document.querySelector(".ani-product");
@@ -131,6 +140,7 @@ window.onload = function () {
   fnAniArea.addEventListener("mouseleave", function () {
     fnAniImgChg.src = "images/ani-product.png";
   });
+
   //quiz area
   AOS.init();
   const fnAnswerBox = document.querySelectorAll(".answer-box .answer-box-li");
@@ -146,7 +156,9 @@ window.onload = function () {
       fnAnswerBox[currentIdx].classList.add("jsAnswer");
       currentIdx++;
       // 모든 fnAnswerBox가 채워졌는지 확인하고 정답 확인 및 버튼 활성화/비활성화
-      const isAllFilled = Array.from(fnAnswerBox).every((li) => li.textContent.trim().length > 0);
+      const isAllFilled = Array.from(fnAnswerBox).every(
+        (li) => li.textContent.trim().length > 0
+      );
       if (isAllFilled) {
         fnChkAnswerSub.classList.add("active-as");
       }
@@ -256,7 +268,13 @@ window.onload = function () {
         draw: function () {
           ctx.fillStyle = "#fff";
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.r, -HALF_PI, TWO_PI * this._progress - HALF_PI);
+          ctx.arc(
+            this.x,
+            this.y,
+            this.r,
+            -HALF_PI,
+            TWO_PI * this._progress - HALF_PI
+          );
           ctx.lineTo(this.x, this.y);
           ctx.closePath();
           ctx.fill();
@@ -292,7 +310,13 @@ window.onload = function () {
         draw: function () {
           ctx.fillStyle = "#fff";
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.startRadius * (1 - this.progress), 0, TWO_PI);
+          ctx.arc(
+            this.x,
+            this.y,
+            this.startRadius * (1 - this.progress),
+            0,
+            TWO_PI
+          );
           ctx.fill();
         },
       };
@@ -323,8 +347,14 @@ window.onload = function () {
       function createParticles() {
         for (var i = 0; i < 128; i++) {
           var p0 = new Point(viewWidth * 0.5, viewHeight * 0.5);
-          var p1 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
-          var p2 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
+          var p1 = new Point(
+            Math.random() * viewWidth,
+            Math.random() * viewHeight
+          );
+          var p2 = new Point(
+            Math.random() * viewWidth,
+            Math.random() * viewHeight
+          );
           var p3 = new Point(Math.random() * viewWidth, viewHeight + 64);
 
           particles.push(new Particle(p0, p1, p2, p3));
@@ -427,8 +457,16 @@ window.onload = function () {
         var p = new Point();
         var nt = 1 - t;
 
-        p.x = nt * nt * nt * p0.x + 3 * nt * nt * t * c0.x + 3 * nt * t * t * c1.x + t * t * t * p1.x;
-        p.y = nt * nt * nt * p0.y + 3 * nt * nt * t * c0.y + 3 * nt * t * t * c1.y + t * t * t * p1.y;
+        p.x =
+          nt * nt * nt * p0.x +
+          3 * nt * nt * t * c0.x +
+          3 * nt * t * t * c1.x +
+          t * t * t * p1.x;
+        p.y =
+          nt * nt * nt * p0.y +
+          3 * nt * nt * t * c0.y +
+          3 * nt * t * t * c1.y +
+          t * t * t * p1.y;
 
         return p;
       }
@@ -436,15 +474,17 @@ window.onload = function () {
       requestAnimationFrame(loop);
     } else {
       document.querySelector(".qbg3").classList.add("show-qbg3");
-      document.querySelector(".quiz-retry-btn").addEventListener("click", function () {
-        document.querySelector(".qbg3").classList.remove("show-qbg3");
-        // 틀렸을 경우 정답 박스 초기화
-        currentIdx = 0;
-        fnAnswerBox.forEach((box) => {
-          box.textContent = "";
-          box.classList.remove("jsAnswer");
+      document
+        .querySelector(".quiz-retry-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".qbg3").classList.remove("show-qbg3");
+          // 틀렸을 경우 정답 박스 초기화
+          currentIdx = 0;
+          fnAnswerBox.forEach((box) => {
+            box.textContent = "";
+            box.classList.remove("jsAnswer");
+          });
         });
-      });
     }
   });
 
