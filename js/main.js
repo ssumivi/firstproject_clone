@@ -89,7 +89,7 @@ window.onload = function () {
     scy = this.document.documentElement.scrollTop;
     const innerWidth = window.innerWidth;
     // 2.class 적용 여부 결정
-    if (innerWidth > 480) {
+    if (innerWidth > 780) {
       if (scy > 0) {
         topLogo.classList.add("logoh");
         langBox.classList.add("logoh");
