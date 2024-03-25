@@ -289,6 +289,7 @@ body {
   justify-content: center;
   font-family: "VITRO CORE TTF", "TTHakgyoansimJiugaeR";
   gap: 5%;
+  margin-bottom: 7%;
 }
 .quiz-text {
   font-size: 8rem;
