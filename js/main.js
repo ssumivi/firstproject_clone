@@ -119,17 +119,20 @@ window.onload = function () {
     var fnAniMove = document.querySelector(".ani-product > a > img");
     const innerWidth = window.innerWidth;
     const innerheight = window.innerHeight;
-
     window.scrollTo({
       top: targetPosition,
       behavior: "smooth",
     });
-    if (innerWidth > 480) {
+    if (innerWidth > 1180) {
       var aniProductElement = document.querySelector(".ani-product");
+      targetImage.style.position = "relative";
       aniProductElement.style.animation = "none";
       fnAniMove.style.position = "absolute";
       fnAniMove.style.bottom = -targetImage.offsetHeight + "px";
       fnAniMove.style.right = "0";
+    }
+    if (innerHeight < 720) {
+      fnAniMove.style.bottom = -(targetImage.offsetHeight + 80) + "px";
     }
     if (innerHeight < 620) {
       fnAniMove.style.bottom = -(targetImage.offsetHeight + 180) + "px";
