@@ -108,6 +108,12 @@ window.onload = function () {
   langM.addEventListener("click", () => {
     langM.classList.remove("show");
   });
+  //main slide img chg
+  const chgMainImg = document.querySelector(".main-img-slide > img");
+  const innerWidth = window.innerWidth;
+  if (innerWidth < 780) {
+    chgMainImg.src = "images/main_img_mobile.png";
+  }
   //ani product link
   var fnScNavLinkElement = document.querySelector(".ani-product a");
   fnScNavLinkElement.addEventListener("click", function (e) {
@@ -115,27 +121,17 @@ window.onload = function () {
     var targetSectionId = this.getAttribute("href");
     var targetSection = document.querySelector(targetSectionId);
     var targetPosition = targetSection.offsetTop;
-    var targetImage = document.querySelector(".main-instastyle-banner");
-    var fnAniMove = document.querySelector(".ani-product > a > img");
+
     const innerWidth = window.innerWidth;
-    const innerheight = window.innerHeight;
     window.scrollTo({
       top: targetPosition,
       behavior: "smooth",
     });
-    if (innerWidth > 1180) {
+    if (innerWidth > 1000) {
       var aniProductElement = document.querySelector(".ani-product");
-      targetImage.style.position = "relative";
-      aniProductElement.style.animation = "none";
-      fnAniMove.style.position = "absolute";
-      fnAniMove.style.bottom = -targetImage.offsetHeight + "px";
-      fnAniMove.style.right = "0";
-    }
-    if (innerHeight < 720) {
-      fnAniMove.style.bottom = -(targetImage.offsetHeight + 80) + "px";
-    }
-    if (innerHeight < 620) {
-      fnAniMove.style.bottom = -(targetImage.offsetHeight + 180) + "px";
+      var aniProductAppear = document.querySelector("#insta-img");
+      aniProductElement.classList.add("hide");
+      aniProductAppear.classList.add("show");
     }
   });
   var fnAniImgChg = document.querySelector(".ani-img");
@@ -164,7 +160,9 @@ window.onload = function () {
       fnAnswerBox[currentIdx].classList.add("jsAnswer");
       currentIdx++;
       // 모든 fnAnswerBox가 채워졌는지 확인하고 정답 확인 및 버튼 활성화/비활성화
-      const isAllFilled = Array.from(fnAnswerBox).every((li) => li.textContent.trim().length > 0);
+      const isAllFilled = Array.from(fnAnswerBox).every(
+        (li) => li.textContent.trim().length > 0
+      );
       if (isAllFilled) {
         fnChkAnswerSub.classList.add("active-as");
       }
@@ -274,7 +272,13 @@ window.onload = function () {
         draw: function () {
           ctx.fillStyle = "#fff";
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.r, -HALF_PI, TWO_PI * this._progress - HALF_PI);
+          ctx.arc(
+            this.x,
+            this.y,
+            this.r,
+            -HALF_PI,
+            TWO_PI * this._progress - HALF_PI
+          );
           ctx.lineTo(this.x, this.y);
           ctx.closePath();
           ctx.fill();
@@ -310,7 +314,13 @@ window.onload = function () {
         draw: function () {
           ctx.fillStyle = "#fff";
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.startRadius * (1 - this.progress), 0, TWO_PI);
+          ctx.arc(
+            this.x,
+            this.y,
+            this.startRadius * (1 - this.progress),
+            0,
+            TWO_PI
+          );
           ctx.fill();
         },
       };
@@ -341,8 +351,14 @@ window.onload = function () {
       function createParticles() {
         for (var i = 0; i < 128; i++) {
           var p0 = new Point(viewWidth * 0.5, viewHeight * 0.5);
-          var p1 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
-          var p2 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
+          var p1 = new Point(
+            Math.random() * viewWidth,
+            Math.random() * viewHeight
+          );
+          var p2 = new Point(
+            Math.random() * viewWidth,
+            Math.random() * viewHeight
+          );
           var p3 = new Point(Math.random() * viewWidth, viewHeight + 64);
 
           particles.push(new Particle(p0, p1, p2, p3));
@@ -445,8 +461,16 @@ window.onload = function () {
         var p = new Point();
         var nt = 1 - t;
 
-        p.x = nt * nt * nt * p0.x + 3 * nt * nt * t * c0.x + 3 * nt * t * t * c1.x + t * t * t * p1.x;
-        p.y = nt * nt * nt * p0.y + 3 * nt * nt * t * c0.y + 3 * nt * t * t * c1.y + t * t * t * p1.y;
+        p.x =
+          nt * nt * nt * p0.x +
+          3 * nt * nt * t * c0.x +
+          3 * nt * t * t * c1.x +
+          t * t * t * p1.x;
+        p.y =
+          nt * nt * nt * p0.y +
+          3 * nt * nt * t * c0.y +
+          3 * nt * t * t * c1.y +
+          t * t * t * p1.y;
 
         return p;
       }
@@ -454,15 +478,17 @@ window.onload = function () {
       requestAnimationFrame(loop);
     } else {
       document.querySelector(".qbg3").classList.add("show-qbg3");
-      document.querySelector(".quiz-retry-btn").addEventListener("click", function () {
-        document.querySelector(".qbg3").classList.remove("show-qbg3");
-        // 틀렸을 경우 정답 박스 초기화
-        currentIdx = 0;
-        fnAnswerBox.forEach((box) => {
-          box.textContent = "";
-          box.classList.remove("jsAnswer");
+      document
+        .querySelector(".quiz-retry-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".qbg3").classList.remove("show-qbg3");
+          // 틀렸을 경우 정답 박스 초기화
+          currentIdx = 0;
+          fnAnswerBox.forEach((box) => {
+            box.textContent = "";
+            box.classList.remove("jsAnswer");
+          });
         });
-      });
     }
   });
 
