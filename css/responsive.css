@@ -664,7 +664,7 @@
     padding: 0 10px;
   }
   .main-img-area .inner {
-    max-width: 370px;
+    max-width: 395px;
   }
   .img-txt-box {
     font-size: 3rem;
@@ -675,7 +675,140 @@
   .main-quiz .inner {
     max-width: 395px;
   }
+  .main-quiz{
+    margin: 10% 0;
+    height: 65vh;
+  }
 }
+@media all and (max-width: 400px) {
+  .header .inner {
+    max-width: 360px;
+  }
+  .main-img-area .inner {
+    max-width: 375px;
+  }
+  .img-txt-box {
+    font-size: 2.8rem;
+  }
+  .ani-product > a > img {
+    width: 200px;
+  }
+  .main-quiz .inner {
+    max-width: 375px;
+  }
+  .main-quiz .quiz-insta-bg {
+    top: 102%;
+  }
+  .main-quiz{
+    margin: 10% 0;
+    height: 80vh;
+  }
+  .answer-box {
+    gap: 5px;
+  }
+}
+@media all and (max-width: 380px) {
+  .header .inner {
+    max-width: 340px;
+  }
+  .main-img-area .inner {
+    max-width: 355px;
+  }
+  .img-txt-box {
+    font-size: 2.7rem;
+  }
+  .main-quiz .inner {
+    max-width: 355px;
+  }
+  .main-quiz .quiz-insta-bg {
+    top: 102%;
+  }
+  .main-quiz{
+    margin: 20% 0;
+    height: 80vh;
+  }
+  .quiz-main-title{
+    gap: 15px;
+  }
+  .quiz-text {
+    font-size: 4.6rem;
+  }
+  .answer-box {
+    gap: 5px;
+  }
+  .answer-box-li {
+    width: 70px;
+    height: 70px;
+    background-color: #a3c100;
+    border-radius: 15px;
+    margin: 20px 0;
+  }
+  .choice-box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 90%;
+  }
+  .choice-box-li {
+    width: 55px;
+    line-height: 55px;
+    font-size: 2.5rem;
+  }
+  .answer-sub {
+    font-size: 1.5rem;
+    width: 100%;
+    margin-top: 15px;
+  }
+  /* js answer style */
+  .jsAnswer {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 3.2rem;
+  }
+  .jsAnswer::after {
+    width: 65px;
+    height: 65px;
+  }
+  /* correc */
+  .qrt-l {
+    font-size: 3.4rem;
+  }
+  .qbg2 img {
+    width: 65px;
+    top: -10%;
+  }
+  .sample-apply-guide {
+    font-size: 1.8rem;
+    line-height: 1.24;
+  }
+  .sub-apply {
+    width: 100%;
+    margin-top: 15px;
+  }
+  /* wrong ver */
+  .qrt-2 {
+    line-height: 2;
+    font-size: 1.8rem;
+  }
+  .qrt-2-1 {
+    font-size: 2.4rem;
+  }
+  .quiz-result-title img {
+    position: absolute;
+    top: 17%;
+    right: 12%;
+    width: 65px;
+  }
+  .quiz-retry-guide img {
+    display: none;
+  }
+  .quiz-retry-btn {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .header .inner {
     max-width: 290px;

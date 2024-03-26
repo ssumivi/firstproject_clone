@@ -108,12 +108,7 @@ window.onload = function () {
   langM.addEventListener("click", () => {
     langM.classList.remove("show");
   });
-  //main slide img chg
-  const chgMainImg = document.querySelector(".main-img-slide > img");
-  const innerWidth = window.innerWidth;
-  if (innerWidth < 780) {
-    chgMainImg.src = "images/main_img_mobile.png";
-  }
+ 
   //ani product link
   var fnScNavLinkElement = document.querySelector(".ani-product a");
   fnScNavLinkElement.addEventListener("click", function (e) {
