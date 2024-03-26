@@ -101,6 +101,14 @@ window.onload = function () {
   // 메뉴 항목에 대한 이벤트 핸들러 설정
   menus.forEach((menu, idx) => {
     menu.addEventListener("mouseover", () => {
+      const fnMenuActive = document.querySelector(".qna-menu-list > li.qna-menu-list-focus");
+
+      if (fnMenuActive) {
+        fnMenuActive.classList.remove("qna-menu-list-focus"); // 기존에 활성화된 메뉴를 비활성화합니다.
+      }
+
+      const currentMenu = document.querySelectorAll(".qna-menu-list > li")[idx];
+      currentMenu.classList.add("qna-menu-list-focus"); // 현재 메뉴를 활성화합니다.
       swQna.slideTo(idx);
     });
   });
