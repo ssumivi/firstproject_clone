@@ -113,12 +113,53 @@ window.onload = function () {
   document.querySelectorAll(".sd-wrapper > li > a").forEach(function (element) {
     element.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetSection = this.getAttribute("href");
-      const targetPosition = document.querySelector(targetSection).offsetTop;
-      document.querySelector("html").animate({ scrollTop: targetPosition }, 1000);
-      document.querySelector("body").animate({ scrollTop: targetPosition }, 1000);
+      const targetSectionId = this.getAttribute("href");
+      const targetSection = document.querySelector(targetSectionId);
+      var targetPosition = targetSection.offsetTop;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+
+      // 이전에 활성화된 메뉴들을 비활성화합니다.
+      document
+        .querySelectorAll(".sd-wrapper > li > a.sdw-focus")
+        .forEach(function (menu) {
+          menu.classList.remove("sdw-focus");
+        });
+
+      // 현재 메뉴를 활성화합니다.
+      element.classList.add("sdw-focus");
     });
   });
+// 각 섹션의 위치를 계산합니다.
+const sections = document.querySelectorAll(".sd-wrapper > li > a");
+const sectionOffsets = Array.from(sections).map(section => {
+  const sectionId = section.getAttribute("href").substring(1);
+  const targetSection = document.getElementById(sectionId);
+  return {
+    id: sectionId,
+    offsetTop: targetSection.offsetTop,
+    offsetBottom: targetSection.offsetTop + targetSection.offsetHeight
+  };
+});
+
+// 스크롤 이벤트를 처리합니다.
+window.addEventListener("scroll", function() {
+  const scrollPosition = window.scrollY;
+
+  // 스크롤 위치에 따라 현재 섹션을 확인하고 해당하는 메뉴를 활성화합니다.
+  sectionOffsets.forEach(section => {
+    const menuLink = document.querySelector(`.sd-wrapper > li > a[href="#${section.id}"]`);
+    if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetBottom) {
+      menuLink.classList.add("sdw-focus");
+    } else {
+      menuLink.classList.remove("sdw-focus");
+    }
+  });
+});
+
+
   //ani product link
   var fnScNavLinkElement = document.querySelector(".ani-product a");
   fnScNavLinkElement.addEventListener("click", function (e) {
@@ -159,7 +200,9 @@ window.onload = function () {
       fnAnswerBox[currentIdx].classList.add("jsAnswer");
       currentIdx++;
       // 모든 fnAnswerBox가 채워졌는지 확인하고 정답 확인 및 버튼 활성화/비활성화
-      const isAllFilled = Array.from(fnAnswerBox).every((li) => li.textContent.trim().length > 0);
+      const isAllFilled = Array.from(fnAnswerBox).every(
+        (li) => li.textContent.trim().length > 0
+      );
       if (isAllFilled) {
         fnChkAnswerSub.classList.add("active-as");
       }
@@ -269,7 +312,13 @@ window.onload = function () {
         draw: function () {
           ctx.fillStyle = "#fff";
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.r, -HALF_PI, TWO_PI * this._progress - HALF_PI);
+          ctx.arc(
+            this.x,
+            this.y,
+            this.r,
+            -HALF_PI,
+            TWO_PI * this._progress - HALF_PI
+          );
           ctx.lineTo(this.x, this.y);
           ctx.closePath();
           ctx.fill();
@@ -305,7 +354,13 @@ window.onload = function () {
         draw: function () {
           ctx.fillStyle = "#fff";
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.startRadius * (1 - this.progress), 0, TWO_PI);
+          ctx.arc(
+            this.x,
+            this.y,
+            this.startRadius * (1 - this.progress),
+            0,
+            TWO_PI
+          );
           ctx.fill();
         },
       };
@@ -336,8 +391,14 @@ window.onload = function () {
       function createParticles() {
         for (var i = 0; i < 128; i++) {
           var p0 = new Point(viewWidth * 0.5, viewHeight * 0.5);
-          var p1 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
-          var p2 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
+          var p1 = new Point(
+            Math.random() * viewWidth,
+            Math.random() * viewHeight
+          );
+          var p2 = new Point(
+            Math.random() * viewWidth,
+            Math.random() * viewHeight
+          );
           var p3 = new Point(Math.random() * viewWidth, viewHeight + 64);
 
           particles.push(new Particle(p0, p1, p2, p3));
@@ -440,8 +501,16 @@ window.onload = function () {
         var p = new Point();
         var nt = 1 - t;
 
-        p.x = nt * nt * nt * p0.x + 3 * nt * nt * t * c0.x + 3 * nt * t * t * c1.x + t * t * t * p1.x;
-        p.y = nt * nt * nt * p0.y + 3 * nt * nt * t * c0.y + 3 * nt * t * t * c1.y + t * t * t * p1.y;
+        p.x =
+          nt * nt * nt * p0.x +
+          3 * nt * nt * t * c0.x +
+          3 * nt * t * t * c1.x +
+          t * t * t * p1.x;
+        p.y =
+          nt * nt * nt * p0.y +
+          3 * nt * nt * t * c0.y +
+          3 * nt * t * t * c1.y +
+          t * t * t * p1.y;
 
         return p;
       }
@@ -449,15 +518,17 @@ window.onload = function () {
       requestAnimationFrame(loop);
     } else {
       document.querySelector(".qbg3").classList.add("show-qbg3");
-      document.querySelector(".quiz-retry-btn").addEventListener("click", function () {
-        document.querySelector(".qbg3").classList.remove("show-qbg3");
-        // 틀렸을 경우 정답 박스 초기화
-        currentIdx = 0;
-        fnAnswerBox.forEach((box) => {
-          box.textContent = "";
-          box.classList.remove("jsAnswer");
+      document
+        .querySelector(".quiz-retry-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".qbg3").classList.remove("show-qbg3");
+          // 틀렸을 경우 정답 박스 초기화
+          currentIdx = 0;
+          fnAnswerBox.forEach((box) => {
+            box.textContent = "";
+            box.classList.remove("jsAnswer");
+          });
         });
-      });
     }
   });
 
