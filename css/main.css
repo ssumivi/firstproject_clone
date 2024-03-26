@@ -186,7 +186,7 @@ body {
   text-align: center;
   font-size: 6.7rem;
   font-family: "VITRO CORE TTF", "TTHakgyoansimJiugaeR";
-  z-index: 99;
+  z-index: 9;
 }
 
 .img-txt1,
@@ -484,6 +484,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
+
 }
 .qbg2 .quiz-box {
   position: relative;
@@ -598,7 +599,6 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: -1;
 }
 .quiz-insta-frame img {
   position: absolute;
@@ -606,7 +606,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 35px;
-  z-index: -1;
 }
 #insta-img {
   z-index: 9;

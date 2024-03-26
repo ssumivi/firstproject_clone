@@ -678,6 +678,7 @@
   .main-quiz{
     margin: 10% 0;
     height: 65vh;
+    min-height: 580px;
   }
 }
 @media all and (max-width: 400px) {
@@ -700,8 +701,8 @@
     top: 102%;
   }
   .main-quiz{
-    margin: 10% 0;
-    height: 80vh;
+    margin: 50px 0;
+    height: 560px;
   }
   .answer-box {
     gap: 5px;
@@ -721,11 +722,10 @@
     max-width: 355px;
   }
   .main-quiz .quiz-insta-bg {
-    top: 102%;
+    top: 105%;
   }
   .main-quiz{
-    margin: 20% 0;
-    height: 80vh;
+    margin: 10% 0;
   }
   .quiz-main-title{
     gap: 15px;
@@ -823,7 +823,10 @@
     max-width: 295px;
   }
   .ani-product > a > img {
-    width: 180px;
+    width: 160px;
+  }
+  .main-quiz{
+    height: 440px;
   }
   .main-quiz .inner {
     max-width: 295px;
