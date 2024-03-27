@@ -164,9 +164,9 @@ body {
 /* section direction */
 .section-direction {
   position: fixed;
-  bottom: 10%;
+  top: 50%;
   left: 3%;
-  transform: translateY(-10%);
+  transform: translateY(-50%);
   display: block;
   z-index: 999;
 }
@@ -297,7 +297,7 @@ body {
   height: 100%;
   max-height: 980px;
   width: 100%;
-  margin: 8% 0;
+  margin-bottom: 4%;
 }
 .main-quiz .inner {
   display: flex;
@@ -621,7 +621,7 @@ body {
   stroke-dashoffset: 1400;
   stroke-dasharray: 1400;
   animation: stroke 1.2s linear;
-  animation-fill-mode: forwards;
+  animation-fill-mode: backwards;
 }
 @keyframes stroke {
   0% {
@@ -759,7 +759,7 @@ body {
   font-size: 3.6rem;
   font-family: "VITRO CORE TTF", "TTHakgyoansimJiugaeR";
   z-index: 9;
-  color: #595959;
+  color: #333;
   cursor: pointer;
 }
 
