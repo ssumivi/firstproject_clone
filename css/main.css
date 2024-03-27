@@ -642,7 +642,7 @@ body {
 }
 .svg-second svg {
   transform: rotate(25deg);
-  stroke: #ff7f23;
+  stroke: #4fc1ff;
 }
 .svg-first {
   position: absolute;
@@ -653,13 +653,12 @@ body {
 }
 .svg-animate-img {
   position: absolute;
-  top: 430px;
+  top: 440px;
   left: 0;
   transform: translate(-50%, -50%);
   width: 100%;
   height: auto;
-  animation: move 1.2s ease infinite;
-  
+  animation: move 1.2s ease infinite; 
 }
 @keyframes move {
   0%{
@@ -690,10 +689,19 @@ body {
     transform: rotate(0deg);
   }
 }
+.animate-img-b{
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(246 / 418 * 100%);
+}
 .svg-animate-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   transform: rotate(75deg);
-  width: 94%;
-  
+  width: 100%;
+  height: 100%;  
 }
 /* image position */
 .svg-img {
