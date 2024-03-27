@@ -72,9 +72,6 @@
   .ani-product > a > img {
     width: 380px;
   }
-  #insta-img {
-    width: 380px;
-  }
   .main-quiz .inner {
     max-width: 1380px;
   }
@@ -96,8 +93,8 @@
   .main-quiz .inner {
     max-width: 1280px;
   }
-  .main-instastyle-banner {
-    height: 500px;
+  .svg-animate-img {
+    top: 420px;
   }
 }
 @media all and (max-width: 1360px) {
@@ -125,9 +122,6 @@
   .ani-product > a > img {
     width: 340px;
   }
-  #insta-img {
-    width: 340px;
-  }
   .main-quiz .quiz-insta-bg {
     right: -4%;
   }
@@ -147,15 +141,15 @@
     padding: 40px;
     height: 100%;
   }
+  .choice-box{
+    gap: 10px;
+  }
   .quiz-title {
     line-height: 45px;
     font-size: 1.8rem;
   }
-  .main-instastyle-banner {
-    height: 430px;
-  }
-  .quiz-insta-frame img {
-    width: 430px;
+  .svg-animate-img{
+    top: 400px;
   }
 }
 @media all and (max-width: 1230px) {
@@ -208,9 +202,6 @@
   .ani-product > a > img {
     width: 320px;
   }
-  #insta-img {
-    width: 320px;
-  }
   .main-quiz .inner {
     max-width: 1080px;
   }
@@ -223,11 +214,19 @@
   .main-quiz .quiz-insta-bg img {
     width: 320px;
   }
-  .main-instastyle-banner {
-    height: 400px;
+  .svg-animate-img{
+    top: 390px;
   }
-  .quiz-insta-frame img {
-    width: 390px;
+}
+@media all and (max-width: 1040px) {
+  .svg-first{
+    left: 0;
+  }
+  .svg-animate-img{
+    left: -25px;
+  }
+  .animate-img-b{
+    width: 95%;
   }
 }
 @media all and (max-width: 1000px) {
@@ -244,17 +243,8 @@
   .ani-product > a > img {
     width: 250px;
   }
-  #insta-img {
-    width: 250px;
-  }
   .main-quiz .inner {
     max-width: 890px;
-  }
-  .quiz-box-bg {
-    width: 75%;
-  }
-  .quiz-box-wrap .qbg2 {
-    width: 75%;
   }
   .qbg2 img {
     width: 135px;
@@ -265,8 +255,19 @@
   .main-quiz .quiz-insta-bg img {
     width: 300px;
   }
-  .main-instastyle-banner {
-    display: none;
+  .fs-noBr {
+    display: block;
+  }
+  .svg-first{
+    top: 70px;
+    left: 0;
+  }
+  .svg-first svg{
+    width: 260px;
+    height: 280px;
+  }
+  .svg-animate-img{
+    top: 370px;
   }
 }
 @media all and (max-width: 950px) {
@@ -305,9 +306,6 @@
   .ani-product > a > img {
     width: 230px;
   }
-  #insta-img {
-    width: 230px;
-  }
   .main-quiz .inner {
     max-width: 860px;
   }
@@ -323,8 +321,30 @@
     margin-bottom: 25%;
     padding-top: 0;
   }
+  .svg-second {
+    position: absolute;
+    top: 360px;
+    right: 0%;
+  }
+  .svg-second svg{
+    width: 140px;
+  }
+  .svg-animate-img{
+    top: 360px;
+    left: 0;
+  }
 }
-
+@media all and (max-width: 830px){
+  .main-quiz .inner{
+    justify-content: center;
+  }
+  .main-quiz .quiz-box-wrap {
+    width: 90%;
+  }
+  .main-svg-banner{
+    display: none;
+  }
+} 
 @media all and (max-width: 780px) {
   .header .inner {
     max-width: 620px;
@@ -567,6 +587,9 @@
   .ani-product > a > img {
     width: 260px;
   }
+  .section-direction{
+    display: none;
+  }
   .main-quiz{
     margin: 5% 0 20%;
   }
@@ -769,7 +792,7 @@
     max-width: 375px;
   }
   .main-quiz .quiz-insta-bg {
-    top: 98%;
+    top: 97%;
   }
   .answer-box {
     gap: 5px;
