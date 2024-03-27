@@ -135,10 +135,13 @@ window.onload = function () {
   const sectionOffsets = Array.from(sections).map((section) => {
     const sectionId = section.getAttribute("href").substring(1);
     const targetSection = document.getElementById(sectionId);
+    const sectionStyles = window.getComputedStyle(targetSection);
+    const marginTop = parseInt(sectionStyles.marginTop);
+    const marginBottom = parseInt(sectionStyles.marginBottom);
     return {
       id: sectionId,
-      offsetTop: targetSection.offsetTop,
-      offsetBottom: targetSection.offsetTop + targetSection.offsetHeight,
+      offsetTop: targetSection.offsetTop - marginTop,
+      offsetBottom: targetSection.offsetTop + targetSection.offsetHeight + marginBottom,
     };
   });
 
@@ -184,17 +187,33 @@ window.onload = function () {
 
   //quiz area
   //animation
-  var playButton = document.querySelectorAll(".svg-title");
+  // 클릭 이벤트 핸들러 등록
+  // 클릭 이벤트 핸들러 등록
+  document.querySelector(".svg-title").addEventListener("click", function (e) {
+    e.preventDefault();
+    // SVG 요소 목록을 가져옵니다.
+    var svgs = document.querySelectorAll(".main-svg-banner svg");
 
-  playButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-      // [재생] 버튼을 클릭하면 -webkit-animation-play-state: running 속성 적용
-      var svgs = document.querySelectorAll(".main-svg-banner svg");
-      svgs.forEach(function (svg) {
+    // SVG 요소의 표시 여부를 토글합니다.
+    svgs.forEach(function (svg) {
+      // SVG 요소가 보이는지 여부 확인
+      var isVisible = window.getComputedStyle(svg).getPropertyValue("display") !== "none";
+
+      // SVG 요소의 표시 여부에 따라 처리
+      if (!isVisible) {
+        // SVG 요소가 보이지 않는 경우 보이도록 변경
+        svg.style.display = "block";
+        // SVG 애니메이션을 재생
         svg.style.animationPlayState = "running";
-      });
+      } else {
+        // SVG 요소가 보이는 경우 감추도록 변경
+        svg.style.display = "none";
+        // SVG 애니메이션을 일시 중지
+        svg.style.animationPlayState = "paused";
+      }
     });
   });
+
   AOS.init();
   const fnAnswerBox = document.querySelectorAll(".answer-box .answer-box-li");
   const fnChoiceBox = document.querySelectorAll(".choice-box .choice-box-li");

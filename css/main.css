@@ -297,7 +297,7 @@ body {
   height: 100%;
   max-height: 980px;
   width: 100%;
-  margin-bottom: 4%;
+  margin: 8% 0 4%;
 }
 .main-quiz .inner {
   display: flex;
@@ -612,16 +612,22 @@ body {
 .main-svg-banner {
   position: relative;
   display: block;
-  width: 40%;
+  width: 30%;
   height: 100%;
 }
 .main-svg-banner svg {
+  display: none;
   stroke-width: 2px;
   fill: transparent;
   stroke-dashoffset: 1400;
   stroke-dasharray: 1400;
-  animation: stroke 1.2s linear;
+  -webkit-animation: stroke 1.2s linear;
   animation-fill-mode: backwards;
+  animation-play-state: paused;
+}
+.main-svg-banner svg.active {
+  display: block;
+  animation-play-state: running; /* 애니메이션이 재생됩니다. */
 }
 @keyframes stroke {
   0% {
@@ -654,11 +660,12 @@ body {
 .svg-animate-img {
   position: absolute;
   top: 440px;
-  left: 0;
+  left: -15px;
   transform: translate(-50%, -50%);
   width: 100%;
   height: auto;
   animation: move 1.2s ease infinite; 
+ 
 }
 @keyframes move {
   0%{
@@ -761,6 +768,8 @@ body {
   z-index: 9;
   color: #333;
   cursor: pointer;
+  border: 0;
+  background: none;
 }
 
 /* ran */
