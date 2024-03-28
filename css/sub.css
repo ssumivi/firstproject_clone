@@ -40,7 +40,7 @@ body {
 .sub-qna-wrapper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 100px 30px;
 }
 .sub-qna-wrapper .inner {
@@ -118,7 +118,7 @@ body {
   color: #d8d8d8;
   padding-bottom: 10px;
 }
-.qna-menu-list-focus{
+.qna-menu-list-focus {
   color: #ffffff !important;
 }
 .qna-click-list {
@@ -181,7 +181,57 @@ body {
   width: 100%;
   height: 100%;
 }
-
+/* 반응형 */
+@media screen and (max-width: 1240px) {
+  .qna-title-h2 {
+    font-size: 6.8rem;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .qna-title-h2 {
+    font-size: 6.2rem;
+  }
+  .qna-message-b {
+    width: 35%;
+    gap: 45px;
+  }
+  .qna-content {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 1020px) {
+  .qna-title-h2 {
+    font-size: 5.8rem;
+  }
+  .qna-click-list {
+    gap: 15px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .sub-qna-wrapper{
+    padding: 100px 0;
+  }
+  .sub-qna-wrapper .inner {
+    max-width: 880px;
+    justify-content: center;
+    padding: 0 0 120px;
+  }
+  .qna-message-b {
+    justify-content: flex-start;
+    position: absolute;
+    top: 35px;
+    left: 0;
+  }
+  .qna-menu-list,
+  .qna-click-list {
+    display: none;
+  }
+  .qna-content {
+    width: 85%;
+    margin-top: 30%;
+    border-radius: 25px;
+  }
+}
 /* ran */
 /* hun */
 
@@ -319,11 +369,9 @@ body {
 .re-h1 {
   font-size: 36px;
   font-weight: 600;
-  color: #fff;
+  color: #333333;
 }
-.img-btgel {
-  background: url("../images/bentraxgel.png") no-repeat center;
-  background-size: cover;
+.img-btgel img {
   width: 230px;
   height: 230px;
   background-color: #fff;
@@ -334,9 +382,11 @@ body {
 .re-h2 {
   font-size: 28px;
   font-weight: 600;
-  color: #fff;
+  color: #333333;
 }
 .re-p {
   font-size: 20px;
   margin-top: 20px;
+  color: red;
+  font-weight: 600;
 }
