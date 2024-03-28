@@ -98,9 +98,9 @@ window.onload = function () {
     let slidesPerViewValue = 1; // 슬라이드 당 보여질 개수 기본값
     let spaceBetweenValue = 20; // 슬라이드 사이의 간격 기본값
 
-    if (ww < 980) {
+    if (ww < 780) {
       slidesPerViewValue = 1; // 980px 미만일 때 1.1개의 슬라이드를 보여줌
-      spaceBetweenValue = 10; // 980px 미만일 때 슬라이드 사이의 간격을 10px로 설정
+      spaceBetweenValue = 20; // 980px 미만일 때 슬라이드 사이의 간격을 10px로 설정
     }
 
     swQna = new Swiper(".sw-qna", {
@@ -125,9 +125,9 @@ window.onload = function () {
   }
 
   function responsiveSwiper() {
-    if (ww < 980) {
+    if (ww < 780) {
       initSwiper("slide");
-    } else if (ww >= 980) {
+    } else if (ww >= 780) {
       initSwiper("fade");
     }
   }
