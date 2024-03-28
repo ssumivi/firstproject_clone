@@ -100,7 +100,7 @@ window.onload = function () {
 
     if (ww < 780) {
       slidesPerViewValue = 1; // 980px 미만일 때 1.1개의 슬라이드를 보여줌
-      spaceBetweenValue = 10; // 980px 미만일 때 슬라이드 사이의 간격을 10px로 설정
+      spaceBetweenValue = 20; // 980px 미만일 때 슬라이드 사이의 간격을 10px로 설정
     }
 
     swQna = new Swiper(".sw-qna", {
