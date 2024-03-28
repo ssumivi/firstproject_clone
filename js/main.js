@@ -186,32 +186,41 @@ window.onload = function () {
   });
 
   //quiz area
-  //animation
-  // 클릭 이벤트 핸들러 등록
-  // 클릭 이벤트 핸들러 등록
+  // SVG 요소 목록을 가져옵니다.
+  var svgs = document.querySelectorAll(".main-svg-banner svg");
+
+  // 클릭 이벤트 핸들러
+  function handleClick() {
+    // SVG 애니메이션을 재생
+    svgs.forEach(function (svg) {
+      svg.style.display = "block";
+      svg.style.animationPlayState = "running";
+    });
+  }
+
+  // 클릭 이벤트 리스너 등록
   document.querySelector(".svg-title").addEventListener("click", function (e) {
     e.preventDefault();
-    // SVG 요소 목록을 가져옵니다.
-    var svgs = document.querySelectorAll(".main-svg-banner svg");
+    handleClick();
+  });
 
-    // SVG 요소의 표시 여부를 토글합니다.
-    svgs.forEach(function (svg) {
-      // SVG 요소가 보이는지 여부 확인
-      var isVisible = window.getComputedStyle(svg).getPropertyValue("display") !== "none";
-
-      // SVG 요소의 표시 여부에 따라 처리
-      if (!isVisible) {
-        // SVG 요소가 보이지 않는 경우 보이도록 변경
-        svg.style.display = "block";
-        // SVG 애니메이션을 재생
-        svg.style.animationPlayState = "running";
-      } else {
-        // SVG 요소가 보이는 경우 감추도록 변경
-        svg.style.display = "none";
-        // SVG 애니메이션을 일시 중지
-        svg.style.animationPlayState = "paused";
-      }
+  // SVG 애니메이션 종료 이벤트 리스너 등록
+  svgs.forEach(function (svg) {
+    svg.addEventListener("animationend", function () {
+      // 애니메이션이 종료되면 SVG를 숨깁니다.
+      svg.style.display = "none";
     });
+  });
+
+  var fnSvgImgChg = document.querySelector(".animate-img-b img");
+  var fnSvgArea = document.querySelector(".svg-title");
+
+  fnSvgArea.addEventListener("mouseenter", function () {
+    fnSvgImgChg.src = "images/ani-product-h-01.png";
+  });
+
+  fnSvgArea.addEventListener("mouseleave", function () {
+    fnSvgImgChg.src = "images/ani-product.png";
   });
 
   AOS.init();

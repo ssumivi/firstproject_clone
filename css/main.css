@@ -650,6 +650,36 @@ body {
   transform: rotate(25deg);
   stroke: #4fc1ff;
 }
+.svg-third {
+  position: absolute;
+  top: 380px;
+  left: 0%;
+  z-index: 12;
+}
+.svg-third svg {
+  transform: rotate(-25deg);
+  stroke: #fffc57;
+}
+.svg-fourth{
+  position: absolute;
+  top: 440px;
+  left: 0%;
+  z-index: 8;
+}
+.svg-fourth svg{
+  transform: rotate(-25deg);
+  stroke: #effaff;
+}
+.svg-fifth{
+  position: absolute;
+  top: 440px;
+  right: 0%;
+  z-index: 8;
+}
+.svg-fifth svg{
+  transform: rotate(-25deg);
+  stroke: #effaff;
+}
 .svg-first {
   position: absolute;
   top: 50px;
