@@ -126,7 +126,7 @@ window.onload = function () {
 
   function responsiveSwiper() {
     if (ww < 780) {
-      initSwiper("cards");
+      initSwiper("slide");
     } else if (ww >= 780) {
       initSwiper("fade");
     }

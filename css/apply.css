@@ -604,9 +604,7 @@ text-decoration: underline;
   border-radius: 7px;
   text-align: center;
   line-height: 55px;
-  cursor: pointer;
-}
-.modal_close a {
+  cursor: pointer;  
   color: #fff;
   font-weight: 600;
 }

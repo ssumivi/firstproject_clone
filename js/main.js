@@ -1,30 +1,5 @@
 window.onload = function () {
-  // 모달창
-  // 모달을 숨기는 함수
-  // function hideModal() {
-  //   document.getElementById("popup").style.display = "none";
-  // }
-
-  // // // "다시 보지 않기" 버튼 이벤트 리스너
-  //  document.getElementById("neverShowAgain").addEventListener("click", function () {
-  //    // localStorage에 사용자의 선택 저장
-  //    localStorage.setItem("hideModal", "true");
-  //    hideModal();
-  //  });
-
-  // // 페이지 로드 시 모달 상태 확인
-  // window.onload = function () {
-  //   // 사용자가 "다시 보지 않기"를 선택했는지 확인
-  //   if (localStorage.getItem("hideModal") === "true") {
-  //     hideModal();
-  //   }
-  // };
-
-  // // "닫기" 버튼 이벤트 리스너 (선택적 구현)
-  // document.getElementById("close").addEventListener("click", function () {
-  //   hideModal();
-  // });
-
+ 
   //min
   //menu area
   //topmenu
@@ -215,7 +190,7 @@ window.onload = function () {
   var fnSvgImgChg = document.querySelector(".animate-img-b img");
   var fnSvgArea = document.querySelector(".svg-title");
 
-  fnSvgArea.addEventListener("click", function () {
+  fnSvgArea.addEventListener("mouseenter", function () {
     fnSvgImgChg.src = "images/ani-product-h-01.png";
   });
 
@@ -545,19 +520,5 @@ window.onload = function () {
     document.getElementById('quiz-area').scrollIntoView(); // 퀴즈 영역으로 스크롤 이동
   });
 };
-$(document).ready(function(){
-  $(".modal-wrap").show();
-  var $expChk = $("#expiresChk");
-  $(".closeBtn").on("click", function () {
-    //1일 동안 이 창 열지않기
-    if ($expChk.is(":checked")) {
-      // popup이라는 이름의 쿠키를 설정
-      $.cookie("popup", "none", { expires: 1, path: "/" });
-    }
-    $(".modal-wrap").hide();
-  });
-  if ($.cookie("popup") == "none") {
-    $(".modal-wrap").hide();
-  }
-});
+
 
